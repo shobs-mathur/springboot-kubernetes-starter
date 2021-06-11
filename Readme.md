@@ -1,7 +1,7 @@
 # Kubernetes + Springboot + MySQL
 This is a kubernetes starter project for springboot applications. This project uses the kubernetes component of Docker Desktop as the kubernetes cluster.
 
-##Build the docker image for springboot application
+## Build the docker image for springboot application
 1. install to create the jar file 
    
          mvn clean install
@@ -9,7 +9,7 @@ This is a kubernetes starter project for springboot applications. This project u
    
          docker build -t springboot-app .
 
-##Create kubernetes objects using kubectl
+## Create kubernetes objects using kubectl
 1. create namespace for application 
    
          kubectl apply -f k8s/namespace.yaml
@@ -46,7 +46,7 @@ This is a kubernetes starter project for springboot applications. This project u
          kubectl apply -f k8s/service-springboot.yaml
 
 
-##Curl request to access the springboot service
+## Curl request to access the springboot service
 
 
 1. add financial limits to mysql database 
