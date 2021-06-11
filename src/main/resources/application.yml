@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: spring-envers
+  flyway:
+    locations: classpath:/db/migration/mysql
+    enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://service-mysql:3306/spring_envers_db
+    username: spring_envers_user
+    password: db_user
+  jpa:
+    hibernate.ddl-auto: create-drop
+
+server:
+  port: 8201

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-springboot
+  namespace: springboot-kubernetes
+  labels:
+    app: springboot-app
+    tier: service
+spec:
+  selector:
+    matchLabels:
+      app: springboot-app
+      tier: service
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: springboot-app
+        tier: service
+    spec:
+      containers:
+        - image: springboot-app:latest
+          name: springboot-app
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8201
+          readinessProbe:
+            httpGet:
+              port: 8201
+              path: /limit/get
+            initialDelaySeconds: 10
+            failureThreshold: 5
+          livenessProbe:
+            httpGet:
+              port: 8201
+              path: /limit/get
+            initialDelaySeconds: 10
+            failureThreshold: 5

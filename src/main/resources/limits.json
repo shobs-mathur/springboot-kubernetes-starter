@@ -1,0 +1,14 @@
+[
+  {
+    "limit": "FINANCIAL_LIMIT_1",
+    "amount": 5000.00
+  },
+  {
+    "limit": "FINANCIAL_LIMIT_2",
+    "amount": 5000.00
+  },
+  {
+    "limit": "FINANCIAL_LIMIT_3",
+    "amount": 25000.00
+  }
+]

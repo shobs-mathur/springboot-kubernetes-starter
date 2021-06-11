@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-springboot
+  namespace: springboot-kubernetes
+  labels:
+    app: springboot-app
+spec:
+  ports:
+    - port: 8201
+      targetPort: 8201
+      protocol: TCP
+      name: http
+  selector:
+    app: springboot-app
+    tier: service
+  type: LoadBalancer

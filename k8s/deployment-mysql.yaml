@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-mysql
+  namespace: springboot-kubernetes
+  labels:
+    app: springboot-mysql
+spec:
+  selector:
+    matchLabels:
+      app: springboot-mysql
+      tier: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: springboot-mysql
+        tier: mysql
+    spec:
+      containers:
+        - image: mysql:5.7
+          name: mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: Th!s|s@S$cur$P@55w0rd
+          ports:
+            - containerPort: 3306
+              name: mysql
