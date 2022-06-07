@@ -24,7 +24,7 @@ This is a kubernetes starter project for springboot applications. This project u
 
 4. execute shell command on mysql pod 
    
-         kubectl exec --namespace=springboot-kubernetes --stdin --tty deployment-mysql-6c9f6bb546-89kdr -- /bin/bash
+         kubectl exec --namespace=springboot-kubernetes --stdin --tty deployment-mysql-9b9b844db-z9nl4 -- /bin/bash
 
 5. login to mysql instance 
    

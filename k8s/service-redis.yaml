@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-redis
+  namespace: springboot-kubernetes
+  labels:
+    app: springboot-redis
+spec:
+  ports:
+    - port: 6379
+  selector:
+    app: springboot-redis
+    tier: cache
+  clusterIP: None

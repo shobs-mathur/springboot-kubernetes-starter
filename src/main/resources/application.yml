@@ -1,6 +1,8 @@
 spring:
   application:
     name: spring-envers
+  componentScan:
+    basePackages: com.shobs.springboot
   flyway:
     locations: classpath:/db/migration/mysql
     enabled: true

@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-redis
+  namespace: springboot-kubernetes
+  labels:
+    app: springboot-redis
+spec:
+  selector:
+    matchLabels:
+      app: springboot-redis
+      tier: cache
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: springboot-redis
+        tier: cache
+    spec:
+      containers:
+        - image: redis:latest
+          name: redis
+          command:
+            - redis-server
+            - "/redis-master/redis.conf"
+          env:
+            - name: MASTER
+              value: "true"
+          ports:
+            - containerPort: 6379
+              name: redis
+          volumeMounts:
+            - mountPath: /redis-master-data
+              name: data
+            - mountPath: /redis-master
+              name: config
+      volumes:
+        - name: data
+          emptyDir: { }
+        - name: config
+          configMap:
+            name: redis-config-map
+            items:
+              - key: redis-config
+                path: redis.conf

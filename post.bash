@@ -1,0 +1,1 @@
+curl -k -s --location --request GET 'http://localhost:8201/counter/redis2'
